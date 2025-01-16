@@ -33,6 +33,12 @@ class category:
         for product in self.product:
             print(f" - {product}")
         print("-"* 70)
+    @staticmethod
+    def categories(categories):
+        for i in range(len(categories)):
+            for j in range(len(categories)):
+                if categories[i].name > categories[j].name:
+                    categories[i],categories[j] = categories[j],categories[i]
 
 class Product:
     def __init__(self,name,code,price):
@@ -63,10 +69,7 @@ print("Befor sort")
 for category in categories:
     category.display_details()
 
-for i in range(len(categories)):
-    for j in range(len(categories)):
-        if categories[i].name > categories[j].name:
-            categories[i],categories[j] = categories[j],categories[i]
+category.categories(categories)
 
 print("After sort")
 for category in categories:
@@ -78,6 +81,7 @@ for category in categories:
     for product in category.product:
             print(f" - {product}")
     print("-"* 70)
+
 
 
         
